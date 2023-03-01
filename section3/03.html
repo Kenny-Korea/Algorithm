@@ -9,23 +9,41 @@
   <body>
     <script>
       // 강사님 답
-      function answer() {
-        let answer;
-
-        return answer;
-      }
-
-      // 내 답 - ing
-      function solution(text) {
-        let answer;
+      // typeof로 하니깐 계속 에러 나니깐 isNaN을 사용하자
+      function answer(text) {
+        let answer = "";
         for (let x of text) {
-          if (typeof parseInt(x) === "number") answer += x;
+          if (!isNaN(x)) answer += x;
         }
         return parseInt(answer);
       }
 
+      // 강사님 답
+      // parseInt를 사용하면 안된다는 조건이 있는 경우
+      function answer2(text) {
+        let answer = "";
+        for (let x of text) {
+          if (!isNaN(x)) answer = answer * 10 + Number(x);
+        }
+        return answer;
+      }
+
+      // 내 답 - 실패
+      function solution(text) {
+        let answer = "";
+        for (let x of text) {
+          if (typeof parseInt(x) === "number") {
+            answer += x;
+            console.log(typeof parseInt(x));
+          }
+          continue;
+        }
+        console.log(answer);
+        return parseInt(answer);
+      }
+
       let example = "g0en2T0s8eSoft";
-      console.log(solution(example));
+      console.log(answer2(example));
     </script>
   </body>
 </html>
