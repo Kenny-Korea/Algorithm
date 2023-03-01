@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8. 일곱 난쟁이</title>
+  </head>
+  <body>
+    <script>
+      // 강사님 답
+      function answer(arr) {
+        let answer = arr;
+        let sum = arr.reduce((a, b) => a + b, 0);
+        for (let i = 0; i < arr.length - 1; i++) {
+          for (let j = 1; j < arr.length; j++) {
+            if (sum - (arr[i] + arr[j]) === 100) {
+              arr.splice(i, 1);
+              // i번째가 먼저 지워졌기 때문에 모든 원소들의 index가 1씩 땡겨지므로
+              arr.splice(j + 1, 1);
+              // 혹은 j를 먼저 splice해도 됨
+            }
+          }
+        }
+        return answer;
+      }
+
+      // 내 답
+      // 문제에서는 진짜 난쟁이를 출력하라고 했는데 나는 가짜 난쟁이를 출력해버림 --> 문제 잘 읽자
+      function solution(array) {
+        let answer = [];
+        let gap =
+          array.reduce((acc, cv) => {
+            return acc + cv;
+          }) - 100;
+
+        for (let i = 0; i < array.length; i++) {
+          for (let j = i + 1; j < array.length; j++) {
+            if (array[i] + array[j] === gap) {
+              answer.push(array[i], array[j]);
+            }
+          }
+        }
+        return answer;
+      }
+      let array = [20, 7, 23, 19, 10, 15, 25, 8, 13];
+      console.log(solution(array));
+    </script>
+  </body>
+</html>

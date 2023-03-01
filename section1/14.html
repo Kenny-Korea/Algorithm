@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>14. 가장 긴 문자열</title>
+  </head>
+  <body>
+    <script>
+      // 강사님 답
+      // MIN_SAFE_INTEGER 사용하기!!
+      function answer(text) {
+        let answer,
+          max = Number.MIN_SAFE_INTEGER;
+        for (let x of text) {
+          if (x.length > max) {
+            max = x.length;
+            answer = x;
+          }
+        }
+      }
+
+      // 내 답
+      function solution(num, arr) {
+        let answer = "";
+        let first = 0;
+        for (let x of arr) {
+          if (x.length > first) {
+            answer = x;
+            first = x.length;
+          }
+        }
+        return answer;
+      }
+      let array = [teacher, time, student, beautiful, good];
+      console.log(solution(array));
+    </script>
+  </body>
+</html>

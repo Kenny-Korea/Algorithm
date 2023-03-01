@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      // 강사님 답안
+
+      // function solution(arr) {
+      //   let answer = [];
+      //   let sum = 0,
+      //     min = Number.MAX_SAFE_INTEGER;
+      //   for (let x of arr) {
+      //     if (x % 2 === 1) {
+      //       sum += x;
+      //       if (x < min) min = x;
+      //     }
+      //   }
+      //   answer.push(sum);
+      //   answer.push(min);
+      //   return answer;
+      // }
+      // let array = [12, 77, 38, 41, 53, 92, 85];
+      // console.log(solution(array));
+
+      // 내 답안
+
+      function solution(arr) {
+        let answer = [];
+        let oddArr = [];
+        for (let i = 0; i < arr.lentgh; i++) {
+          if (arr[i] % 2 === 1) {
+            oddArr.push(arr[i]);
+          } else return;
+        }
+        answer.push(
+          oddArr.reduce((acc, cv) => {
+            return acc + cv;
+          })
+        );
+        answer.push(Math.min(...oddArr));
+        return answer;
+      }
+      let array = [12, 77, 38, 41, 53, 92, 85];
+      console.log(solution(array));
+    </script>
+  </body>
+</html>

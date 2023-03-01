@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      // 강사님 답
+      function answer() {
+        let answer;
+
+        return answer;
+      }
+
+      // 내 답 - 완료
+      function solution(text) {
+        let answer = true;
+        if (text.length % 2 === 1) {
+          let front = "";
+          let back = "";
+          for (let i = 0; i < Math.floor(text.length / 2); i++) {
+            front += text[i].toLowerCase();
+            back += text[text.length - 1 - i].toLowerCase();
+          }
+          if (front === back) answer = true;
+          else answer = false;
+        } else {
+          let front = "";
+          let back = "";
+          for (let i = 0; i < text.length / 2 - 1; i++) {
+            front += text[i].toLowerCase();
+            back += text[text.length - 1 - i].toLowerCase();
+          }
+          if (front === back) answer = true;
+          else answer = false;
+        }
+
+        return answer;
+      }
+
+      let example = "gooG";
+      console.log(solution(example));
+    </script>
+  </body>
+</html>

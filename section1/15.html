@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      // 강사님 답 (substring)
+      function answer(text) {
+        let answer;
+        let mid = Math.floor(text.length / 2);
+        if (text.length % 2 === 1) answer = text.substring(mid, mid + 1);
+        else answer = text.substring(mid - 1, mid + 1);
+        return answer;
+      }
+      // 강사님 답 (substr)
+      function answer(text) {
+        let answer;
+        let mid = Math.floor(text.length / 2);
+        if (text.length % 2 === 1) answer = text.substr(mid, 1);
+        else answer = text.substr(mid - 1, 2);
+        return answer;
+      }
+
+      // 내 답
+      function solution(text) {
+        let answer = "";
+        if (text.length % 2 === 0) {
+          answer += text[text.length / 2 - 1];
+          answer += text[text.length / 2];
+        } else {
+          answer += text[Math.floor(text.length / 2)];
+        }
+        return answer;
+      }
+      let text = "study";
+      console.log(solution(text));
+    </script>
+  </body>
+</html>

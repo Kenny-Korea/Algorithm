@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      // 강사님 답
+      function answer(arr) {
+        // answer를 리턴하는 객체 형태에 맞추어 지정하는 연습을 하자
+        let answer = 1,
+          max = arr[0];
+        for (let i = 1; i < arr.length; i++) {
+          if (arr[i] > max) {
+            answer++;
+            max = arr[i];
+          }
+        }
+
+        return answer;
+      }
+
+      // 내 답
+      function solution(arr) {
+        let answer = [];
+        let max = Number.MIN_SAFE_INTEGER;
+        console.log(max);
+        for (let x of arr) {
+          if (x > max) {
+            max = x;
+            answer.push(x);
+          }
+        }
+        return answer.length;
+      }
+
+      let example = [130, 135, 148, 140, 145, 150, 150, 153];
+      console.log(solution(example));
+    </script>
+  </body>
+</html>

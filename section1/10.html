@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10. 문자 찾기</title>
+  </head>
+  <body>
+    <script>
+      // 강사님 답
+      // R 을 기준으로 나눔
+      // text의 맨 끝에 R이 있는 경우에는 그 오른쪽에 빈 문자열이 추가되어 로직에 문제 없음
+      function answer(text, char) {
+        let answer = text.split(char);
+        return answer - 1;
+      }
+
+      // 내 답
+      function solution(text, char) {
+        // answer를 0으로 초기화 해놓지 않으면 NaN 으로 리턴됨 --> 초기화의 중요성!!!
+        let answer = 0;
+        for (let x of text) {
+          if (x === char) answer++;
+        }
+        return answer;
+      }
+
+      console.log(solution("COMPUTERPROGRAMMING", "R"));
+    </script>
+  </body>
+</html>

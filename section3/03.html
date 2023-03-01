@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      // 강사님 답
+      function answer() {
+        let answer;
+
+        return answer;
+      }
+
+      // 내 답 - ing
+      function solution(text) {
+        let answer;
+        for (let x of text) {
+          if (typeof parseInt(x) === "number") answer += x;
+        }
+        return parseInt(answer);
+      }
+
+      let example = "g0en2T0s8eSoft";
+      console.log(solution(example));
+    </script>
+  </body>
+</html>

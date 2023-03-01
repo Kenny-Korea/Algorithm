@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      // 강사님 답
+      function answer(arr) {
+        let n = arr.length;
+        let answer = Array.from({ length: n }, () => 1);
+        for (let i = 0; i < n; i++) {
+          for (let j = 0; j < n; j++) {
+            if (arr[j] > arr[i]) answer[i]++;
+          }
+        }
+
+        return answer;
+      }
+
+      // 내 답
+      // 계속 안됐던 이유: sort 함수는 원본 배열을 수정해버림
+      // --> 배열 복사를 통해 문제 해결
+      function solution(arr) {
+        let answer = [];
+        let sortedArr = [...arr].sort((a, b) => {
+          return b - a;
+        });
+        // [100, 92, 89, 87, 76]
+        arr.forEach((ele) => {
+          answer.push(sortedArr.indexOf(ele) + 1);
+        });
+
+        return answer;
+      }
+
+      let example = [87, 89, 92, 100, 76];
+      console.log(solution(example));
+    </script>
+  </body>
+</html>

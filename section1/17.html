@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      // 강사님 답
+      function answer(arr) {
+        let answer;
+        answer = arr.filter((v, i) => {
+          // filter에 return을 true로 주면 해당 배열 값 출력 (아래와 같이 표현할 수도 있음)
+          // if (arr.indexOf(v) === i) return true;
+          return arr.indexOf(v) === i;
+        });
+        return answer;
+      }
+
+      // 내 답
+      function solution(arr) {
+        let answer = [];
+        for (let i = 0; i < arr.length; i++) {
+          if (i === arr.indexOf(arr[i])) answer.push(arr[i]);
+        }
+        return answer;
+      }
+
+      let example = ["good", "time", "good", "time", "student"];
+      console.log(answer(example));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      // 강사님 답
+      // 내꺼에선 가로/세로를 따로 for문 돌렸는데, i랑 j랑 자리만 바뀌는 것이기 때문에
+      // 하나의 for문으로 더 깔끔하게 작성할 수 있음
+
+      // 가로 - 세로
+      function answer(arr) {
+        let answer = Number.MIN_SAFE_INTEGER;
+        let n = arr.length;
+        let sum1 = (sum2 = 0);
+        for (let i = 0; i < n; i++) {
+          for (let j = 0; j < n; j++) {
+            sum += arr[i][j];
+            sum += arr[j][i];
+          }
+        }
+        // 초기화
+        sum1 = sum2 = 0;
+        for (let i = 0; i < n; i++) {
+          sum1 += arr[i][i];
+          sum2 += arr[i][n - 1 - i];
+        }
+
+        return answer;
+      }
+
+      // 내 답
+      // 맞게 풀긴 했는데 좀 더 간편한 방법이 있지 않을까?
+      function solution(arr) {
+        let answer = [];
+        // 가로
+        for (let i = 0; i < arr.length; i++) {
+          let sum = 0;
+          for (let j = 0; j < arr.length; j++) {
+            sum += arr[i][j];
+          }
+          answer.push(sum);
+        }
+        // 세로
+        for (let i = 0; i < arr.length; i++) {
+          let sum = 0;
+          for (let j = 0; j < arr.length; j++) {
+            sum += arr[j][i];
+          }
+          answer.push(sum);
+        }
+        // 대각선
+        let sum1 = 0;
+        let sum2 = 0;
+        for (let i = 0; i < arr.length; i++) {
+          sum1 += arr[i][i];
+          sum2 += arr[i][arr.length - i - 1];
+        }
+        answer.push(sum1);
+        answer.push(sum2);
+
+        return answer.sort((a, b) => b - a)[0];
+      }
+
+      let example = [
+        [10, 13, 10, 12, 15],
+        [12, 39, 30, 23, 11],
+        [11, 25, 50, 53, 15],
+        [19, 27, 29, 37, 27],
+        [19, 13, 30, 13, 19],
+      ];
+      console.log(solution(example));
+    </script>
+  </body>
+</html>

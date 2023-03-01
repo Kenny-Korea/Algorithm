@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      // 강사님 답
+      function answer(arr) {
+        let answer = [];
+        answer.push(arr[0]);
+        // i === 0 일 때의 조건을 주는 것보다, for문에서 i가 1부터 시작하게 하는 것이 더 간단
+        for (let i = 1; i < arr.length; i++) {
+          if (arr[i] > arr[i - 1]) answer.push(arr[i]);
+        }
+        return answer;
+      }
+
+      // 내 답
+      function solution(arr) {
+        let answer = [];
+        for (let i = 0; i < arr.length; i++) {
+          if (i === 0) {
+            answer.push(arr[i]);
+          }
+          if (arr[i - 1] < arr[i]) answer.push(arr[i]);
+        }
+        return answer;
+      }
+
+      let example = [7, 3, 9, 5, 6, 12];
+      console.log(solution(example));
+    </script>
+  </body>
+</html>

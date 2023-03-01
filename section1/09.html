@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9. A를 #으로</title>
+  </head>
+  <body>
+    <script>
+      // 못풀었음
+      // 강사님 답1(for문)
+      function solution(text) {
+        let answer = "";
+        for (let x of text) {
+          if (x === "A") answer += "#";
+          else answer += x;
+        }
+
+        return answer;
+      }
+      let text = "BANANA";
+      console.log(solution(text));
+
+      // 강사님 답2(replace + 정규표현식)
+      function solution2(text) {
+        let answer = text;
+        answer = answer.replace(/A/g, "#");
+        return answer;
+      }
+    </script>
+  </body>
+</html>

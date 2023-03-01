@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12. 대문자로 통일</title>
+  </head>
+  <body>
+    <script>
+      // 강사님 답 1
+      function answer(text) {
+        let answer = "";
+        for (let x of text) {
+          if (x.toLowerCase() === x) answer += x.toUpperCase();
+          else answer += x;
+        }
+      }
+
+      // 강사님 답 2 (아스키 코드)
+      function answer2(text) {
+        let answer = "";
+        for (let x of text) {
+          let num = x.charCodeAt();
+          if (num >= 97 && num <= 122) answer += String.fromCharCode(num - 32);
+          else answer += x;
+        }
+      }
+
+      // 강사님 답 3
+      function answer3(text) {
+        let answer = text.toUpperCase();
+        return answer;
+      }
+
+      // 내 답
+      function solution(text) {
+        let answer = "";
+        for (let x of text) {
+          answer += x.toUpperCase();
+        }
+        return answer;
+      }
+
+      console.log(solution("ItisTimeToStudy"));
+    </script>
+  </body>
+</html>
