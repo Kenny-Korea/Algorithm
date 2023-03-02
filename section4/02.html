@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      // 강사님 답
+      function answer() {
+        let answer;
+
+        return answer;
+      }
+
+      // 내 답 - ing
+      function solution(arr) {
+        let answer = [];
+        for (let x of arr) {
+          let revNum = +x.toString().split("").reverse().join("");
+          for (let i = 2; i < revNum - 1; i++) {
+            if (revNum % i === 0) break;
+          }
+          answer.push(revNum);
+        }
+        return answer;
+      }
+
+      let example = [32, 55, 62, 20, 250, 370, 200, 30, 100];
+      console.log(solution(example));
+    </script>
+  </body>
+</html>
