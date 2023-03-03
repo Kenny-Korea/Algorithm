@@ -9,27 +9,56 @@
   <body>
     <script>
       // 강사님 답
-      function answer() {
-        let answer;
+      function isPrime(num) {
+        if (num === 1) return false;
+        // 계산 과정을 조금 더 단축시키기 위해 /2
+        for (let i = 2; i <= num / 2; i++) {
+          if (num % i === 0) return false;
+        }
+        return true;
+      }
+
+      function answer(arr) {
+        let answer = [];
+        for (let x of arr) {
+          let res = Number(x.toString().split("").reverse().join(""));
+          // let res = 0;
+          // // while문을 이용한 숫자 쪼개기
+          // while (x) {
+          //   let t = x % 10;
+          //   res = res * 10 + t;
+          //   x = parseInt(x / 10);
+          // }
+          if (isPrime(res)) answer.push(res);
+        }
 
         return answer;
       }
 
-      // 내 답 - ing
+      // 내 답 - 완료
       function solution(arr) {
         let answer = [];
         for (let x of arr) {
           let revNum = +x.toString().split("").reverse().join("");
-          for (let i = 2; i < revNum - 1; i++) {
-            if (revNum % i === 0) break;
+          let cnt = 0;
+          if (revNum === 1) {
+            continue;
           }
-          answer.push(revNum);
+          for (let i = 2; i < revNum - 1; i++) {
+            if (revNum % i === 0) {
+              cnt++;
+              break;
+            }
+            // 나머지가 0이면 다음 x로 가야함
+          }
+          if (cnt === 0) answer.push(revNum);
+          else continue;
         }
         return answer;
       }
 
       let example = [32, 55, 62, 20, 250, 370, 200, 30, 100];
-      console.log(solution(example));
+      console.log(answer(example));
     </script>
   </body>
 </html>
